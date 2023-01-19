@@ -33,6 +33,11 @@ class MyApp extends StatelessWidget {
           child: Column(
             children: <Widget>[
               TextFormField(
+                textAlign: TextAlign.center,
+                decoration: InputDecoration(hintText: 'Untitled...'), 
+              ),
+        
+              TextFormField(
                 keyboardType: TextInputType.multiline,
                 maxLines: null,
                 decoration: InputDecoration(
