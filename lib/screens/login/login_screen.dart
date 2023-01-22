@@ -2,6 +2,7 @@ import 'dart:html';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:project_onword_frontend/core/constants/color_constants.dart';
 
 class Login extends StatefulWidget {
   Login({required this.title});
@@ -56,11 +57,11 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
               Container(
                 height: MediaQuery.of(context).size.height,
                 width: MediaQuery.of(context).size.width / 2,
-                color: bgColor, // need to create in constants
+                color: bgColor,
                 child: Center(
                   child: Card(
                     // elevation:5,
-                    color: bgColor, // need to creat in constants
+                    color: bgColor, 
                     child: Container(
                       padding: EdgeInsets.all(42),
                       width: MediaQuery.of(context).size.width / 3.6,
@@ -137,9 +138,35 @@ Container _registerScreen(BuildContext context) {
     constraints: BoxConstraints(
       minHeight: MediaQuery.of(context).size.height - 0.0,
     ),
-    
+    child: Form(
+      child: Column(
+        children: [
+         InputWidget(   // need to create InputWidget file
+              keyboardType: TextInputType.emailAddress,
+              onSaved: (String? value) {
+                // This optional block of code can be used to run
+                // code when the user saves the form.
+              },
+              onChanged: (String? value) {
+                // This optional block of code can be used to run
+                // code when the user saves the form.
+              },
+              validator: (String? value) {
+                return (value != null && value.contains('@'))
+                    ? 'Do not use the @ char.'
+                    : null;
+              },
 
-  )
+              topLabel: "Name",
+
+              hintText: "Enter Name",
+              // prefixIcon: FlutterIcons.chevron_left_fea,
+            ), 
+          
+    ],),)
+
+
+  );
 }
 
 }
