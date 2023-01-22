@@ -3,6 +3,8 @@ import 'dart:html';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:project_onword_frontend/core/constants/color_constants.dart';
+import 'package:project_onword_frontend/core/widgets/app_button_widget.dart';
+import 'package:project_onword_frontend/core/widgets/input_widget.dart';
 
 class Login extends StatefulWidget {
   Login({required this.title});
@@ -61,7 +63,7 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                 child: Center(
                   child: Card(
                     // elevation:5,
-                    color: bgColor, 
+                    color: bgColor,
                     child: Container(
                       padding: EdgeInsets.all(42),
                       width: MediaQuery.of(context).size.width / 3.6,
@@ -118,7 +120,6 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
                           //        ]),
                           //  ),
                           //),
-
                         ],
                       ),
                     ),
@@ -132,41 +133,78 @@ class _LoginState extends State<Login> with SingleTickerProviderStateMixin {
     );
   }
 
-Container _registerScreen(BuildContext context) {
-  return Container(
-    width: double.infinity,
-    constraints: BoxConstraints(
-      minHeight: MediaQuery.of(context).size.height - 0.0,
-    ),
-    child: Form(
-      child: Column(
-        children: [
-         InputWidget(   // need to create InputWidget file
-              keyboardType: TextInputType.emailAddress,
-              onSaved: (String? value) {
-                // This optional block of code can be used to run
-                // code when the user saves the form.
+  Container _registerScreen(BuildContext context) {
+    return Container(
+        width: double.infinity,
+        constraints: BoxConstraints(
+          minHeight: MediaQuery.of(context).size.height - 0.0,
+        ),
+        child: Form(
+          child: Column(
+            children: [
+              InputWidget(
+                // need to create InputWidget file
+                keyboardType: TextInputType.emailAddress,
+                onSaved: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                onChanged: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                validator: (String? value) {
+                  return (value != null && value.contains('@'))
+                      ? 'Do not use the @ char.'
+                      : null;
+                },
+
+                topLabel: "Name",
+
+                hintText: "Enter Name",
+                  // prefixIcon: FlutterIcons.chevron_left_fea,
+              ),
+              SizedBox(height: 8.0),
+              InputWidget(
+                keyboardType: TextInputType.emailAddress,
+                onSaved: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                onChanged: (String? value) {
+                  // This optional block of code can be used to run
+                  // code when the user saves the form.
+                },
+                validator: (String? value) {
+                  return (value != null && value.contains('@'))
+                  ? 'Do not use the @ char.'
+                  : null;
+                },
+                topLabel: "Enter email address",
+                // prefixIcon: FlutterIcons.chevron_left_fea,
+              ),
+              SizedBox(height: 8.0),
+              InputWidget(
+                topLabel: "Password",
+                obscureText: true,
+                hintText: "Enter password",
+               onSaved: (String? uPassword) {},
+                onChanged: (String? value) {},
+                validator: (String? value) {},
+              ),
+              SizedBox(height: 24.0),
+            AppButton(
+              type: ButtonType.PRIMARY,
+              text: "Sign Up",
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => HomeScreen()),
+                );
               },
-              onChanged: (String? value) {
-                // This optional block of code can be used to run
-                // code when the user saves the form.
-              },
-              validator: (String? value) {
-                return (value != null && value.contains('@'))
-                    ? 'Do not use the @ char.'
-                    : null;
-              },
-
-              topLabel: "Name",
-
-              hintText: "Enter Name",
-              // prefixIcon: FlutterIcons.chevron_left_fea,
-            ), 
-          
-    ],),)
-
-
-  );
-}
-
+            ),
+            ],
+          ),
+        ));
+  }
 }
