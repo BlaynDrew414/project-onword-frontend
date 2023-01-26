@@ -1,7 +1,8 @@
-import 'package:project_onword_frontend/core/constants/color_constants.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_admin_dashboard/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:smart_admin_dashboard/core/models/book_data_model.dart';
+import 'package:smart_admin_dashboard/screens/dashboard/components/book_list_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -20,51 +21,47 @@ class SideMenu extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: defaultPadding * 3,
+                  height: defaultPadding * 0,
                 ),
                 Image.asset(
-                  "assets/logo/logo_icon.png",
-                  scale: 5,
+                  "assets/logo/oldewolfwhitelogo.png",
+                  scale: 15,
                 ),
                 SizedBox(
                   height: defaultPadding,
                 ),
-                Text("OnWord")
+                Text("Project OnWord")
               ],
             )),
             DrawerListTile(
-              title: "Dashboard",
+              title: "Home",
               svgSrc: "assets/icons/menu_dashbord.svg",
               press: () {},
-            ),
+            ),  
             DrawerListTile(
-              title: "Posts",
+              title: "Manuscripts",
               svgSrc: "assets/icons/menu_tran.svg",
-              press: () {},
+              press: () {
+                Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => BookListScreen(
+                    books: [],
+                  ),
+                ));
+              },
             ),
             DrawerListTile(
-              title: "Pages",
+              title: "Formatting",
               svgSrc: "assets/icons/menu_task.svg",
               press: () {},
             ),
             DrawerListTile(
-              title: "Categories",
+              title: "Story Maps",
               svgSrc: "assets/icons/menu_doc.svg",
               press: () {},
             ),
             DrawerListTile(
-              title: "Appearance",
+              title: "Animation Library",
               svgSrc: "assets/icons/menu_store.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              title: "Users",
-              svgSrc: "assets/icons/menu_notification.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              title: "Tools",
-              svgSrc: "assets/icons/menu_profile.svg",
               press: () {},
             ),
             DrawerListTile(

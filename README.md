@@ -1,16 +1,29 @@
-# project_onword_frontend
+# 🔥 🔥 Smart Admin Panel & Dashboard 
 
-A new Flutter project.
+Flutter Web Smart Admin & Panel Dashboard with flutter UI kit.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+### Support 
 
-A few resources to get you started if this is your first Flutter project:
+> ⭐️ If you want to access the backend(Firebase or Django) integrated fully management system with comprehensive features and good documentation. You can leave me message. ⭐️
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[![BTC](https://img.shields.io/badge/BTC-33FY83UU8o5q8qogNzFY2CegPn6PzRCsJA-f5f5f5?logo=bitcoin)](https://blockchain.com/btc/address/33FY83UU8o5q8qogNzFY2CegPn6PzRCsJA)
+
+
+### Smart Admin Panel & Dashboard
+
+
+![alt text](/screenshots/deniz-codes-sc.png)
+
+
+### 💻 Requirements
+
+- Any Operating System (MacOS, Linux, Windows)
+- Any IDE with Flutter SDK installed (Android Studio, VSCode etc)
+- A little knowledge of Dart and Flutter
+
+
+### 👨‍💻 Author
+
+Developed by Deniz Çolak

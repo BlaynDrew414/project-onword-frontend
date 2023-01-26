@@ -1,5 +1,4 @@
-import 'package:project_onword_frontend/core/constants/color_constants.dart';
-
+import 'package:smart_admin_dashboard/core/constants/color_constants.dart';
 import 'package:flutter/material.dart';
 
 class InputWidget extends StatelessWidget {

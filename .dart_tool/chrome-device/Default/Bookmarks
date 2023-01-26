@@ -1,0 +1,59 @@
+{
+   "checksum": "a8ad6e2c59b06ca6991370bf06c52cd2",
+   "roots": {
+      "bookmark_bar": {
+         "children": [ {
+            "date_added": "13318740593045803",
+            "date_last_used": "0",
+            "guid": "3581ce4a-12e3-43e1-b880-ea3fd4e440e5",
+            "id": "6",
+            "name": "LastPass password manager",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "http://js.redirect.hp.com/jumpstation?bd=lastpass&c=*&locale=*&pf=*&s=*&tp=edge"
+         }, {
+            "date_added": "13318740593045162",
+            "date_last_used": "0",
+            "guid": "f2283e14-9b73-4806-86fa-6b0d42127a21",
+            "id": "5",
+            "name": "Express VPN",
+            "show_icon": false,
+            "source": "oem_preload",
+            "type": "url",
+            "url": "http://js.redirect.hp.com/jumpstation?bd=expressvpn&c=*&locale=en_us&pf=*&s=*&tp=edge"
+         } ],
+         "date_added": "13318740592830151",
+         "date_last_used": "0",
+         "date_modified": "13318740593045803",
+         "guid": "0bc5d13f-2cba-5d74-951f-3f233fe6c908",
+         "id": "1",
+         "name": "Favorites bar",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "other": {
+         "children": [  ],
+         "date_added": "13318740592830153",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "82b081ec-3dd3-529c-8475-ab6c344590dd",
+         "id": "2",
+         "name": "Other favorites",
+         "source": "unknown",
+         "type": "folder"
+      },
+      "synced": {
+         "children": [  ],
+         "date_added": "13318740592830155",
+         "date_last_used": "0",
+         "date_modified": "0",
+         "guid": "4cf2e351-0e85-532b-bb37-df045d8f8d0f",
+         "id": "3",
+         "name": "Mobile favorites",
+         "source": "unknown",
+         "type": "folder"
+      }
+   },
+   "version": 1
+}
