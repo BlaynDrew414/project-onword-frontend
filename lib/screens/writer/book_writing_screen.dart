@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_admin_dashboard/core/constants/color_constants.dart';
 import 'package:smart_admin_dashboard/core/models/book_data_model.dart';
 import 'package:smart_admin_dashboard/screens/home/components/side_menu.dart';
@@ -26,10 +27,21 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-     // drawer: Drawer(child: SideMenu(),), need a different drawer for writing screen.
-      appBar: AppBar(
-        title: Text("Book Title"),
-      ),
+      // drawer: Drawer(child: SideMenu(),), need a different drawer for writing screen.
+      appBar: PreferredSize(
+        preferredSize: Size.fromHeight(70),
+        child: AppBar(
+            title: Text("Book Title"),
+            backgroundColor: bgColor,
+            bottom: PreferredSize(
+              child: Container(
+                color: writerTextColor,
+                height: 0.3,
+              ),
+              preferredSize: Size.fromHeight(1),
+            )
+        ),
+    ),
       body: Padding(
         padding: EdgeInsets.only(left: 200, right: 200),
         child: Form(
@@ -38,7 +50,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
               TextFormField(
                 textAlign: TextAlign.center,
                 controller: _titleController,
-                style: TextStyle(
+                style: GoogleFonts.merriweather(
                   color: _textColor,
                   fontSize: 22,
                 ),
@@ -48,7 +60,13 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                 ),
                 maxLines: null,
               ),
-              Divider(color: _textColor, thickness: 1, height: 60, endIndent: 420, indent: 420, ),
+              Divider(
+                color: _textColor,
+                thickness: 1,
+                height: 60,
+                endIndent: 420,
+                indent: 420,
+              ),
               Expanded(
                 child: SingleChildScrollView(
                   child: Padding(
@@ -57,8 +75,9 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                       textAlign: TextAlign.left,
                       keyboardType: TextInputType.multiline,
                       maxLines: null,
-                      style: TextStyle(
+                      style: GoogleFonts.merriweather(
                         fontSize: 18,
+                        fontWeight: FontWeight.w300,
                         color: _textColor,
                       ),
                       decoration: InputDecoration(
