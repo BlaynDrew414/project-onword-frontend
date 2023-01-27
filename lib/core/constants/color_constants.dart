@@ -8,6 +8,7 @@ const secondaryColor = Color.fromARGB(255, 65, 64, 83);
 const bgColor = Color.fromARGB(255, 34, 30, 47);
 const darkgreenColor = Color(0xFF2c614f);
 const greenColor = Color.fromARGB(255, 18, 94, 114);
+const writerTextColor = Color.fromARGB(255, 160, 161, 162);
 
 const defaultPadding = 16.0;
 const double defaultBorderRadius = 15;

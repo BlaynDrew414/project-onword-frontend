@@ -44,6 +44,7 @@ final List<BookInfo> bookInfo = [
     title: "Book 5",
     author: "John Kipper",
     imageUrl: "Put Image Here",
+    
   ),
 ];
 

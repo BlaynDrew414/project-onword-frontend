@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:smart_admin_dashboard/core/models/book_data_model.dart';
 import 'package:smart_admin_dashboard/screens/dashboard/components/book_list_screen.dart';
+import 'package:smart_admin_dashboard/screens/dashboard/dashboard_screen.dart';
+import 'package:smart_admin_dashboard/screens/home/home_screen.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -36,7 +38,11 @@ class SideMenu extends StatelessWidget {
             DrawerListTile(
               title: "Home",
               svgSrc: "assets/icons/menu_dashbord.svg",
-              press: () {},
+              press: () {
+                 Navigator.of(context).push(MaterialPageRoute(
+                  builder: (context) => HomeScreen(),
+                ));
+              },
             ),  
             DrawerListTile(
               title: "Manuscripts",
