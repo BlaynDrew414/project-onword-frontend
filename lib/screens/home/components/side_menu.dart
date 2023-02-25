@@ -13,69 +13,77 @@ class SideMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Drawer(
-      child: SingleChildScrollView(
-        // it enables scrolling
-        child: Column(
-          children: [
-            DrawerHeader(
-                child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  height: defaultPadding * 0,
-                ),
-                Image.asset(
-                  "assets/logo/oldewolfwhitelogo.png",
-                  scale: 15,
-                ),
-                SizedBox(
-                  height: defaultPadding,
-                ),
-                Text("Project OnWord")
-              ],
-            )),
-            DrawerListTile(
-              title: "Home",
-              svgSrc: "assets/icons/menu_dashbord.svg",
-              press: () {
-                 Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => HomeScreen(),
-                ));
-              },
-            ),  
-            DrawerListTile(
-              title: "Manuscripts",
-              svgSrc: "assets/icons/menu_tran.svg",
-              press: () {
-                Navigator.of(context).push(MaterialPageRoute(
-                  builder: (context) => BookListScreen(
-                    books: [],
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+          color: writerTextColor,
+          width: 0.3,
+        )
+      ),
+      child: Drawer(
+        child: SingleChildScrollView(
+          // it enables scrolling
+          child: Column(
+            children: [
+              DrawerHeader(
+                  child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    height: defaultPadding * 0,
                   ),
-                ));
-              },
-            ),
-            DrawerListTile(
-              title: "Formatting",
-              svgSrc: "assets/icons/menu_task.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              title: "Story Maps",
-              svgSrc: "assets/icons/menu_doc.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              title: "Animation Library",
-              svgSrc: "assets/icons/menu_store.svg",
-              press: () {},
-            ),
-            DrawerListTile(
-              title: "Settings",
-              svgSrc: "assets/icons/menu_setting.svg",
-              press: () {},
-            ),
-          ],
+                  Image.asset(
+                    "assets/logo/oldewolfwhitelogo.png",
+                    scale: 15,
+                  ),
+                  SizedBox(
+                    height: defaultPadding,
+                  ),
+                  Text("Project OnWord")
+                ],
+              )),
+              DrawerListTile(
+                title: "Home",
+                svgSrc: "assets/icons/menu_dashbord.svg",
+                press: () {
+                   Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => HomeScreen(),
+                  ));
+                },
+              ),  
+              DrawerListTile(
+                title: "Manuscripts",
+                svgSrc: "assets/icons/menu_tran.svg",
+                press: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => BookListScreen(
+                      books: [],
+                    ),
+                  ));
+                },
+              ),
+              DrawerListTile(
+                title: "Formatting",
+                svgSrc: "assets/icons/menu_task.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "Story Maps",
+                svgSrc: "assets/icons/menu_doc.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "Animation Library",
+                svgSrc: "assets/icons/menu_store.svg",
+                press: () {},
+              ),
+              DrawerListTile(
+                title: "Settings",
+                svgSrc: "assets/icons/menu_setting.svg",
+                press: () {},
+              ),
+            ],
+          ),
         ),
       ),
     );
