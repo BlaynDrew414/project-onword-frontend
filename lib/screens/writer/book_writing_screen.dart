@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smart_admin_dashboard/core/constants/color_constants.dart';
 import 'package:smart_admin_dashboard/core/models/book_data_model.dart';
-import 'package:smart_admin_dashboard/screens/home/components/side_menu.dart';
 import 'package:smart_admin_dashboard/screens/writer/writer_side_menus/writer_left_menu.dart';
 
 class BookDetailScreen extends StatefulWidget {
   final BookInfo book;
 
   BookDetailScreen({required this.book});
-  
+
   @override
   _BookDetailScreenState createState() => _BookDetailScreenState();
 }
@@ -40,7 +39,14 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: AppBar(
-          title: Text("Book Title"),
+          title: Text(
+            widget.book.title, 
+            style: GoogleFonts.merriweather(
+              color: _textColor, 
+              fontSize: 28,
+              fontWeight: FontWeight.w400,
+            ),
+          ),
           backgroundColor: bgColor,
           bottom: PreferredSize(
             child: Container(
@@ -59,7 +65,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
         children: [
           if (screenWidth >= 900 && _isDrawerOpen)
             Expanded(
-              child: SideMenu(),
+              child: WriterLeftMenu(book: widget.book),
             ),
           Expanded(
             flex: 5,
@@ -124,7 +130,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
       drawer: screenWidth < 900
           ? Drawer(
               elevation: 0.0,
-              child: WriterLeftMenu(),
+              child: WriterLeftMenu(book: widget.book),
             )
           : null,
     );

@@ -58,21 +58,7 @@ final List<BookInfo> bookInfo = [
     imageUrl: "Put Image Here",
      chapter: [
       Chapter(title: 'Chapter 1', ),
-      Chapter(title: 'Chapter 2', ),
-      Chapter(title: 'Chapter 3', ),
-    ],
-    notes: [
-      Note(title: 'Note 1', content: 'This is note 1'),
-      Note(title: 'Note 2', content: 'This is note 2'),
-    ],
-  ),
-  BookInfo(
-    title: "Book 2",
-    author: "John Kipper",
-    imageUrl: "Put Image Here",
-    chapter: [
-      Chapter(title: 'Chapter 1', ),
-      Chapter(title: 'Chapter 2', ),
+      Chapter(title: 'Chapter Test', ),
       Chapter(title: 'Chapter 3', ),
     ],
     notes: [
@@ -110,6 +96,20 @@ final List<BookInfo> bookInfo = [
   ),
   BookInfo(
     title: "Book 5",
+    author: "John Kipper",
+    imageUrl: "Put Image Here",
+    chapter: [
+      Chapter(title: 'Chapter 1', ),
+      Chapter(title: 'Chapter 2', ),
+      Chapter(title: 'Chapter 3', ),
+    ],
+    notes: [
+      Note(title: 'Note 1', content: 'This is note 1'),
+      Note(title: 'Note 2', content: 'This is note 2'),
+    ],
+  ),
+  BookInfo(
+    title: "Book 6",
     author: "John Kipper",
     imageUrl: "Put Image Here",
     chapter: [
