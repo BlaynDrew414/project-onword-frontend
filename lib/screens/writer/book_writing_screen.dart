@@ -16,6 +16,7 @@ class BookDetailScreen extends StatefulWidget {
 class _BookDetailScreenState extends State<BookDetailScreen> {
   final _titleController = TextEditingController();
   final _authorController = TextEditingController();
+  final _chapterController = TextEditingController();
   final Color _textColor = writerTextColor;
   bool _isDrawerOpen = true;
 
@@ -30,6 +31,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     super.initState();
     _titleController.text = widget.book.title;
     _authorController.text = widget.book.author;
+    _chapterController.text = widget.book.chapter[0].title;
   }
 
   @override
@@ -39,12 +41,15 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(70),
         child: AppBar(
-          title: Text(
-            widget.book.title, 
-            style: GoogleFonts.merriweather(
-              color: _textColor, 
-              fontSize: 28,
-              fontWeight: FontWeight.w400,
+          title: Padding(
+            padding: EdgeInsets.only(left: 210),
+            child: Text(
+              widget.book.title,
+              style: GoogleFonts.merriweather(
+                color: _textColor,
+                fontSize: 36,
+                fontWeight: FontWeight.w400,
+              ),
             ),
           ),
           backgroundColor: bgColor,
@@ -76,7 +81,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
                   children: [
                     TextFormField(
                       textAlign: TextAlign.center,
-                      controller: _titleController,
+                      controller: _chapterController,
                       style: GoogleFonts.merriweather(
                         color: _textColor,
                         fontSize: 22,
