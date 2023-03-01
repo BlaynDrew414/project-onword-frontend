@@ -31,7 +31,7 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
     super.initState();
     _titleController.text = widget.book.title;
     _authorController.text = widget.book.author;
-    _chapterController.text = widget.book.chapter[0].title;
+    _chapterController.text = widget.book.chapter.first.title; 
   }
 
   @override
@@ -42,13 +42,14 @@ class _BookDetailScreenState extends State<BookDetailScreen> {
         preferredSize: Size.fromHeight(70),
         child: AppBar(
           title: Padding(
-            padding: EdgeInsets.only(left: 210),
+            padding: const EdgeInsets.only(left: 180),
             child: Text(
-              widget.book.title,
+              widget.book.title, 
               style: GoogleFonts.merriweather(
-                color: _textColor,
+                color: _textColor, 
                 fontSize: 36,
                 fontWeight: FontWeight.w400,
+                 letterSpacing: 1.5, 
               ),
             ),
           ),
