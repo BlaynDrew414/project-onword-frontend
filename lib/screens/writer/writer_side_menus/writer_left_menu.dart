@@ -10,7 +10,8 @@ class WriterLeftMenu extends StatefulWidget {
 }
 
 class _WriterLeftMenuState extends State<WriterLeftMenu> {
-  bool _isExpanded = true;
+  bool _isChapterExpanded = true;
+  bool _isNoteExpanded = true;
 
   @override
   Widget build(BuildContext context) {
@@ -24,21 +25,68 @@ class _WriterLeftMenuState extends State<WriterLeftMenu> {
       child: Drawer(
         child: ListView(
           children: [
+            Container(
+              width: 150,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    child: _isChapterExpanded
+                        ? Icon(Icons.keyboard_arrow_down)
+                        : Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      setState(() {
+                        _isChapterExpanded = !_isChapterExpanded;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    width: 10.0, // add some spacing between the icon and text
+                  ),
+                  Text(
+                    'Chapters',
+                    style: TextStyle(
+                      fontSize:
+                          14, // set the font size to make the text smaller
+                    ),
+                  ),
+                  Spacer(), // add a spacer widget to push the plus sign icon to the right
+                  GestureDetector(
+                    child: Icon(
+                      Icons.add,
+                      size: 18,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        widget.book.chapter
+                            .add(Chapter(title: 'Untitled Chapter'));
+                      });
+                    },
+                  ),
+                  SizedBox(width: 9.0)
+                ],
+              ),
+            ),
+            if (_isChapterExpanded)
+              for (var i = 0; i < widget.book.chapter.length; i++)
+                ListTile(
+                  title: Text(widget.book.chapter[i].title),
+                ),
+            SizedBox(height: 16), // add some space below the chapter list tiles
             ListTile(
-              title: Text('Chapters'),
-              trailing: _isExpanded
+              title: Text('Notes'),
+              trailing: _isNoteExpanded
                   ? Icon(Icons.keyboard_arrow_down)
                   : Icon(Icons.keyboard_arrow_right),
               onTap: () {
                 setState(() {
-                  _isExpanded = !_isExpanded;
+                  _isNoteExpanded = !_isNoteExpanded;
                 });
               },
             ),
-            if (_isExpanded)
-              for (var i = 0; i < widget.book.chapter.length; i++)
+            if (_isNoteExpanded)
+              for (var i = 0; i < widget.book.notes.length; i++)
                 ListTile(
-                  title: Text(widget.book.chapter[i].title),
+                  title: Text(widget.book.notes[i].title),
                 ),
           ],
         ),
