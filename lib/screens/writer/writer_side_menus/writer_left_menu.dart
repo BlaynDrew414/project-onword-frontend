@@ -72,16 +72,45 @@ class _WriterLeftMenuState extends State<WriterLeftMenu> {
                   title: Text(widget.book.chapter[i].title),
                 ),
             SizedBox(height: 16), // add some space below the chapter list tiles
-            ListTile(
-              title: Text('Notes'),
-              trailing: _isNoteExpanded
-                  ? Icon(Icons.keyboard_arrow_down)
-                  : Icon(Icons.keyboard_arrow_right),
-              onTap: () {
-                setState(() {
-                  _isNoteExpanded = !_isNoteExpanded;
-                });
-              },
+            Container(
+              width: 150,
+              child: Row(
+                children: [
+                  GestureDetector(
+                    child: _isNoteExpanded
+                        ? Icon(Icons.keyboard_arrow_down)
+                        : Icon(Icons.keyboard_arrow_right),
+                    onTap: () {
+                      setState(() {
+                        _isNoteExpanded = !_isNoteExpanded;
+                      });
+                    },
+                  ),
+                  SizedBox(
+                    width: 10.0, // add some spacing between the icon and text
+                  ),
+                  Text(
+                    'Notes',
+                    style: TextStyle(
+                      fontSize:
+                          14, // set the font size to make the text smaller
+                    ),
+                  ),
+                  Spacer(), // add a spacer widget to push the plus sign icon to the right
+                  GestureDetector(
+                    child: Icon(
+                      Icons.add,
+                      size: 18,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        widget.book.notes.add(Note(title: 'Untitled Note', content: ''));
+                      });
+                    },
+                  ),
+                  SizedBox(width: 9.0)
+                ],
+              ),
             ),
             if (_isNoteExpanded)
               for (var i = 0; i < widget.book.notes.length; i++)
