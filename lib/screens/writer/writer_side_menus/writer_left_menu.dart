@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:smart_admin_dashboard/core/constants/color_constants.dart';
 import 'package:smart_admin_dashboard/core/models/book_data_model.dart';
+import 'package:flutter/rendering.dart';
+
 
 class WriterLeftMenu extends StatefulWidget {
   final BookInfo book;
@@ -12,6 +14,14 @@ class WriterLeftMenu extends StatefulWidget {
 class _WriterLeftMenuState extends State<WriterLeftMenu> {
   bool _isChapterExpanded = true;
   bool _isNoteExpanded = true;
+  
+    void _onReorder(int oldIndex, int newIndex, List list) {
+    if (newIndex > oldIndex) newIndex -= 1;
+    setState(() {
+      final item = list.removeAt(oldIndex);
+      list.insert(newIndex, item);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +54,7 @@ class _WriterLeftMenuState extends State<WriterLeftMenu> {
                   ),
                   Text(
                     'Chapters',
-                    style: TextStyle(
+                    style: TextStyle( 
                       fontSize:
                           14, // set the font size to make the text smaller
                     ),
@@ -67,10 +77,21 @@ class _WriterLeftMenuState extends State<WriterLeftMenu> {
               ),
             ),
             if (_isChapterExpanded)
-              for (var i = 0; i < widget.book.chapter.length; i++)
-                ListTile(
-                  title: Text(widget.book.chapter[i].title),
-                ),
+             ReorderableListView.builder(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    key: Key('${widget.book.chapter[index].hashCode}'),
+                    title: Text(widget.book.chapter[index].title),
+                    trailing: Icon(Icons.drag_handle),
+                  );
+                },
+                itemCount: widget.book.chapter.length,
+                onReorder: (oldIndex, newIndex) {
+                  _onReorder(oldIndex, newIndex, widget.book.chapter);
+                },
+              ),
             SizedBox(height: 16), // add some space below the chapter list tiles
             Container(
               width: 150,
@@ -113,10 +134,24 @@ class _WriterLeftMenuState extends State<WriterLeftMenu> {
               ),
             ),
             if (_isNoteExpanded)
-              for (var i = 0; i < widget.book.notes.length; i++)
-                ListTile(
-                  title: Text(widget.book.notes[i].title),
-                ),
+  ReorderableListView.builder(
+    shrinkWrap: true,
+    physics: ClampingScrollPhysics(),
+    itemBuilder: (context, index) {
+      return ListTile(
+        key: Key('${widget.book.notes[index].hashCode}'),
+        title: Text(widget.book.notes[index].title),
+        trailing: Icon(Icons.drag_handle),
+      );
+    },
+    itemCount: widget.book.notes.length,
+    onReorder: (oldIndex, newIndex) {
+      setState(() {
+        final item = widget.book.notes.removeAt(oldIndex);
+        widget.book.notes.insert(newIndex, item);
+      });
+    },
+  ),
           ],
         ),
       ),
